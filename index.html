@@ -62,7 +62,7 @@ button {
 </style>
 	
 <script>
-$(document).ready(function() {
+window.onload(function() {
 	var reelsVid = document.getElementById("vid-reels");
 	var resVid   = document.getElementById("vid-res");
 	
@@ -86,14 +86,6 @@ $(document).ready(function() {
 		resVid.load();
 		resVid.play();
 	}	
-		
-	$('#control').click(function() {
-		playReels();
-	});
-	
-	$('#check').click(function() {
-		playRes();
-	});
 });
 	
 </script>
@@ -110,8 +102,9 @@ $(document).ready(function() {
 	<video id="vid-res" type="video/mp4" controls=""> <source src="videos/resreels.mp4" type="video/mp4"> </video>
 	</div>
 	
-	<div class="button1"><button id="control">Start</button></div>
-	<div class="button2"><button id="check">Check</button></div>
+	<div class="button1"><button onclick=playReels()" id="control">Start</button></div>
+	<div class="button2"><button onclick=playRes()"   id="check">  Check</button></div>
+	
 	</div> <video id="video1" class="video1" poster="images/poster.jpg" type="video/mp4" controls=""> <source src="videos/02-nofloodwithrain.mp4"> </video> </div>
 </div>
 </body>
