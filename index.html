@@ -12,9 +12,16 @@ body {
 .bd {
 	text-align:center;
 }
-.container {
+.reelscontainer {
 	margin:0 auto;
+	float:left;
 	width:1300px;
+}
+	
+.rescontainer {
+	margine:0 auto;
+	float:right;
+	width:500px;
 }
 
 .video1 {
@@ -59,9 +66,12 @@ button {
 <div class="bd">
 	<h1 style="color:white">Gambling with floods</h1>
 	
-	<div class="container">
-	<video id="vid-reels" controls="" poster="images/poster.jpg" type="video/mp4"> <source src="videos/reels.mp4" type="video/mp4"> </video>
+	<div class="reelscontainer">
+	<video id="vid-reels" controls="" type="video/mp4"> <source src="videos/reels.mp4" type="video/mp4"> </video>
         </div>
+	<div class="rescontainer">
+	<video id="vid-res" controls="" type="video/mp4"> <source src="videos/resreels.mp4" type="video/mp4"> </video>
+	</div>
 	
 	<div class="button1"><button id="control">Start</button></div>
 	<div class="button2"><button id="check">Check</button></div>
