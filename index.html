@@ -70,19 +70,23 @@ button {
 	
 	var ftt1 = 1; var ftt2 = 1;
 	function playReels() {
+		<!--
 		if (ftt1) { ftt1=0; }
 		else { reelsSrc.removeChild(source); }
 		reelsSrc.setAttribute('src',"videos/reels.mp4");
 		reelsVid.appendChild(reelsSrc);
 		reelsVid.load();
+		-->
 		reelsVid.play();
 	}
 	function playRes() {
+		<!--
 		if (ftt2) { ftt2=0; }
 		else { resSrc.removeChild(resSrc); }
 		source.setAttribute('src',"videos/resreels.mp4");
 		resVid.appendChild(resSrc);
 		resVid.load();
+		-->
 		resVid.play();
 	}	
 </script>
