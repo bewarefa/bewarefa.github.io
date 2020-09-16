@@ -19,16 +19,16 @@ body {
 }
 	
 .rescontainer {
-	margine:0 auto;
+	margin:0 auto;
 	float:right;
 	width:300px;
 }
 
-.video1 {
-	width: 576px;
-	height: 460px;
-
-	}
+.expcontainer {
+ 	margin:0 auto;
+        float:middle;
+        width:500px;
+}
 	
 .button1 {
         float:left;
@@ -38,6 +38,11 @@ body {
 .button2 {
         float:right;
         border: 5px;
+}
+
+.button3 {
+	float:left;
+	border: 5px;
 }
 	
 button {
@@ -60,51 +65,151 @@ button {
 	clear:both;
 }
 </style>
-	
-<script>
-	var reelsVid = document.getElementById("vid-reels");
-	var resVid   = document.getElementById("vid-res");
-	
-	var reelsSrc = document.createElement('source');
-	var resSrc   = document.createElement('source');
-	
-	var ftt1 = 1; var ftt2 = 1;
-	function playReels() {
-		//if (ftt1) { ftt1=0; }
-		//else { reelsSrc.removeChild(source); }
-		//reelsSrc.setAttribute('src',"videos/reels.mp4");
-		//reelsVid.appendChild(reelsSrc);
-		//reelsVid.load();
-		//
-		reelsVid.play();
-	}
-	
-	function playRes() {
-		//if (ftt2) { ftt2=0; }
-		//else { resSrc.removeChild(resSrc); }
-		//source.setAttribute('src',"videos/resreels.mp4");
-		//resVid.appendChild(resSrc);
-		//resVid.load();
-		resVid.play();
-	}	
-</script>
 
 </head>
 <body>
 <div class="bd">
 	<h1 style="color:white">Gambling with floods</h1>
 	
-	<div class="reelscontainer">
-	<video id="vid-reels" type="video/mp4" controls="" > <source src="videos/reels.mp4" type="video/mp4"> </video>
-        </div>
-	<div class="rescontainer">
-	<video id="vid-res" type="video/mp4" controls=""> <source src="videos/resreels.mp4" type="video/mp4"> </video>
-	</div>
-	
-	<div class="button1">  <button onclick="playReels()" id="control">Start</button></div>
-	<div class="button2">  <button onclick="playRes()"   id="check">  Check</button></div>
-	
-	</div> <video id="video1" class="video1" poster="images/poster.jpg" type="video/mp4" controls=""> <source src="videos/02-nofloodwithrain.mp4"> </video> </div>
+	<video id="vid-reels" width=800 height=400 poster="images/poster-reels.jpg" type="video/mp4" > </video>
+	<video id="vid-res"   width=266 height=400 poster="images/poster-res.jpg" type="video/mp4"> </video>
+
+	<div class="button1">  <button onclick="playReels()">1: Start</button></div>
+	<div class="button2">  <button onclick="playRes()"  >2: Check</button></div>
+
+	<video width="640" height="480" id="vid-explain" poster="images/poster.jpg" type="video/mp4"> </video> 
+	<div class="button3">  <button onclick="playExp()" >3: Explain</button></div>
+
+
 </div>
+
+<script>
+	var reelsVid = document.getElementById("vid-reels");
+	var resVid   = document.getElementById("vid-res");
+	var expVid   = document.getElementById("vid-explain");
+	
+	var reelsSrc = document.createElement('source');
+	var resSrc   = document.createElement('source');
+	var expSrc   = document.createElement('source');
+
+        var randreels=1;
+	var reelsanim;
+	var resanim;
+	var outcomeanim;
+	
+	var ftt1 = 1; var ftt2 = 1; var ftt3 = 1;
+
+	function playReels() {
+                randreels = Math.round(Math.random()*27);
+		reelsanim="videos/reels"+parseInt(randreels)+".mp4";
+		resanim="videos/resreels1.mp4";
+		// outcomes 1-5 == no flood
+		// outcomes 6 - 12 == flood
+		// outcomes 13 - 18 == ???
+                switch (randreels) {
+                case 1:
+                  outcomeanim="videos/outcome11.mp4";resanim="videos/resreels1.mp4";
+                  break;
+                case 2:
+                  outcomeanim="videos/outcome09.mp4";resanim="videos/resreels1.mp4";
+                  break;
+                case 3:
+                  outcomeanim="videos/outcome08.mp4";resanim="videos/resreels1.mp4";
+                  break;
+                case 4:
+                  outcomeanim="videos/outcome01.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 5:
+                  outcomeanim="videos/outcome01.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 6:
+                  outcomeanim="videos/outcome01.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 7:
+                  outcomeanim="videos/outcome08.mp4";resanim="videos/resreels1.mp4";
+                  break;
+                case 8:
+                  outcomeanim="videos/outcome17.mp4";resanim="videos/resreels"+parseInt(Math.ceil(Math.random()*2))+".mp4";
+                  break;
+                case 9:
+                  outcomeanim="videos/outcome18.mp4";resanim="videos/resreels"+parseInt(Math.ceil(Math.random()*2))+".mp4";
+                  break;
+                case 10:
+                  outcomeanim="videos/outcome12.mp4";resanim="videos/resreels1.mp4";
+                  break;
+                case 11:
+                  outcomeanim="videos/outcome15.mp4";resanim="videos/resreels"+parseInt(Math.ceil(Math.random()*2))+".mp4";
+                  break;
+                case 12:
+                  outcomeanim="videos/outcome18.mp4";resanim="videos/resreels"+parseInt(Math.ceil(Math.random()*2))+".mp4";
+                  break;
+                case 13:
+                  outcomeanim="videos/outcome01.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 14:
+                  outcomeanim="videos/outcome01.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 15:
+                  outcomeanim="videos/outcome01.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 16:
+                  outcomeanim="videos/outcome13.mp4";resanim="videos/resreels"+parseInt(Math.ceil(Math.random()*2))+".mp4";
+                  break;
+                case 17:
+                  outcomeanim="videos/outcome03.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 18:
+                  outcomeanim="videos/outcome05.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 19:
+                  outcomeanim="videos/outcome07.mp4";resanim="videos/resreels1.mp4";
+                  break;
+                case 20:
+                  outcomeanim="videos/outcome15.mp4";resanim="videos/resreels"+parseInt(Math.ceil(Math.random()*2))+".mp4";
+                  break;
+                case 21:
+                  outcomeanim="videos/outcome06.mp4";resanim="videos/resreels1.mp4";
+                  break;
+                case 22:
+                  outcomeanim="videos/outcome01.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 23:
+                  outcomeanim="videos/outcome01.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 24:
+                  outcomeanim="videos/outcome01.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 25:
+                  outcomeanim="videos/outcome14.mp4";resanim="videos/resreels"+parseInt(Math.ceil(Math.random()*2))+".mp4";
+                  break;
+                case 26:
+                  outcomeanim="videos/outcome02.mp4";resanim="videos/resreels2.mp4";
+                  break;
+                case 27:
+                  outcomeanim="videos/outcome04.mp4";resanim="videos/resreels2.mp4";
+                  break;
+		}
+
+		if (ftt1) { ftt1=0; reelsVid.appendChild(reelsSrc);}
+		reelsSrc.setAttribute('src',reelsanim);
+		reelsVid.load();
+		reelsVid.play();
+	}
+	
+	function playRes() {
+		if (ftt2) { ftt2=0; resVid.appendChild(resSrc); }
+		resSrc.setAttribute('src',resanim);
+		resVid.load();
+		resVid.play();
+	}	
+
+	function playExp() {
+		if (ftt3) { ftt3=0; expVid.appendChild(expSrc); }
+		expSrc.setAttribute('src',outcomeanim);
+		expVid.load();
+		expVid.play();
+	}	
+</script>
+
 </body>
 </html>
