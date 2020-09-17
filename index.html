@@ -9,9 +9,7 @@ body {
 	padding:20px;
 	background-image: url('images/background2.png');
 }
-.bd {
-	text-align:center;
-}
+
 .reelscontainer {
 	margin:0 auto;
 	float:left;
@@ -84,7 +82,6 @@ body {
 
 </head>
 <body>
-<div class="bd">
 	<h1 style="color:white">Be the flood judge</h1>
 	<h3 style="color:white">
 		Click on <i><b>start</i></b> to spin the reels of ground, weather and river conditions.<br>
@@ -93,19 +90,20 @@ body {
 	</h3>
 	<table style"width:100%">
 	<tr><td>
-	<video id="vid-reels" width=800 height=400 poster="images/poster-reels.jpg" type="video/mp4" > </video>
-	<video id="vid-res"   width=266 height=400 poster="images/poster-res.jpg" type="video/mp4"> </video>
+		<video id="vid-reels" width=800 height=400 poster="images/poster-reels.jpg" type="video/mp4" > </video>
+		<video id="vid-res"   width=266 height=400 poster="images/poster-res.jpg" type="video/mp4"> </video>
 	</td></tr>
 	<tr><td>
-	<div class="button1">  <button onclick="playReels()">Start</button></div>
-	<div class="button2">  <button onclick="playRes()"  >Check</button></div>
+		<div class="button1">  <button onclick="playReels()">Start</button></div>
+		<div class="button2">  <button onclick="playRes()"  >Check</button></div>
 	</td></tr>
-
-	<video width="640" height="480" id="vid-explain" poster="images/Flood-banner-3.jpg" type="video/mp4"> </video> 
-	<div class="button3">  <button onclick="playExp()" >3: Explain</button></div>
-
-
-</div>
+	<tr><td>
+		<video width="640" height="480" id="vid-explain" poster="images/Flood-banner-3.jpg" type="video/mp4"> </video> 
+	</td></tr>
+	<tr><td>
+		<div class="button3">  <button onclick="playExp()" >3: Explain</button></div>
+	</td></tr>
+	</table>
 
 <div class="disclaim">
 All reasonable care has been taken that information published on the Be the Flood Judge website is correct at the time of publishing. However, Be the Flood Judge the does not guarantee the accuracy of the information published on its website nor can it be held responsible for any errors or omissions.
